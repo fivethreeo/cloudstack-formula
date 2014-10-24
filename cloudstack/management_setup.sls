@@ -48,8 +48,7 @@ cloudstack_dbperms:
     - connection_charset: utf8
 
 cloudstack_setup_databases:
-  cmd:
-    - watch
+  cmd.wait:
     - name: |
         cloudstack-setup-databases \
             {{ salt['pillar.get']('cloudstack:management:db_user') }}:{{ salt['pillar.get']('cloudstack:management:db_pass') }}@localhost \
