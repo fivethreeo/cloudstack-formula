@@ -21,6 +21,9 @@ cloudstack_dbname:
   mysql_database:
     - present
     - name: {{ salt['pillar.get']('cloudstack:management:db_name') }}
+    - connection_user: {{ salt['pillar.get']('cloudstack:management:conn_user') }}
+    - connection_pass: {{ salt['pillar.get']('cloudstack:management:conn_pass') }}
+    - connection_charset: utf8
 
 cloudstack_dbuser:
   mysql_user:
@@ -40,6 +43,9 @@ cloudstack_dbperms:
     - database: {{ salt['pillar.get']('cloudstack:management:db_name') }}.*
     - user: {{ salt['pillar.get']('cloudstack:management:db_user') }}
     - host: localhost
+    - connection_user: {{ salt['pillar.get']('cloudstack:management:conn_user') }}
+    - connection_pass: {{ salt['pillar.get']('cloudstack:management:conn_pass') }}
+    - connection_charset: utf8
 
 cloudstack_setup_databases:
   cmd:
