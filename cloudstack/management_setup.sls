@@ -4,6 +4,7 @@
 
 include:
   - cloudstack.management
+  - mysql.python
   - mysql.server
   - ntp
   - java.server_jre
