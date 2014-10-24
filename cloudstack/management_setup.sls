@@ -52,7 +52,7 @@ cloudstack_setup_databases:
     - watch
     - name: |
         cloudstack-setup-databases \
-            cloud:{{ salt['pillar.get']('cloudstack.management.db_user') }}@localhost \
+            {{ salt['pillar.get']('cloudstack.management.db_user') }}:{{ salt['pillar.get']('cloudstack:management:db_pass')@localhost \
             --deploy-as=root:{{ salt['pillar.get']('cloudstack:management:db_pass') }} \
             -e {{ salt['pillar.get']('cloudstack:management:encryption_type') }} \
             -m {{ salt['pillar.get']('cloudstack:management:server_key') }} \
