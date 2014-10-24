@@ -53,6 +53,6 @@ cloudstack_setup_databases:
             -i {{ salt['pillar.get']('cloudstack:management:server_ip') }}
         cloudstack-setup-management
     - require:
-      - pkg: mysql_server
+      - pkg: mysqld
     - watch_in:
       - pkg: cloudstack_management
